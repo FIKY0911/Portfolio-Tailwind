@@ -25,22 +25,31 @@
 
 <body class="font-sans antialiased text-gray-800">
 
-    <!-- Header -->
-    <header>
-        <nav class="bg-cyan-400 py-4 shadow fixed w-full top-0 z-50">
-            <div class="container max-w-7xl mx-auto flex justify-between items-center px-4">
-                <a href="#home" class="text-lg font-bold text-white">Mohamad Fiky</a>
-                    <ul class="flex space-x-6 text-white font-medium">
-                        <li><a href="#home" class="hover:text-dark transition-colors">Beranda</a></li>
-                        <li><a href="#about" class="hover:text-dark transition-colors">About</a></li>
-                        <li><a href="#portfolio" class="hover:text-dark transition-colors">Portfolio</a></li>
-                        <li><a href="#blog" class="hover:text-dark transition-colors">Blog</a></li>
-                        <li><a href="#contact" class="hover:text-dark transition-colors">Contact</a></li>
-                    </ul>
-            </div>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <nav class="bg-cyan-400 py-4 shadow fixed w-full top-0 z-50">
+      <div class="container max-w-7xl mx-auto flex justify-between items-center px-4">
 
+        <!-- Logo -->
+        <a href="#home" class="text-lg font-bold text-white">Mohamad Fiky</a>
+
+        <!-- Tombol hamburger (mobile) -->
+        <button id="menu-toggle" class="text-white text-2xl md:hidden focus:outline-none">
+          ☰
+        </button>
+
+        <!-- Menu utama (dipakai untuk desktop & mobile) -->
+        <ul id="navbar-menu"
+          class="hidden absolute md:static top-full left-0 w-full md:w-auto bg-cyan-500 md:bg-transparent flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 p-4 md:p-0 text-white font-medium md:flex">
+          <li><a href="#home" class="hover:text-slate-200  transition-colors block">Beranda</a></li>
+          <li><a href="#about" class="hover:text-slate-200  transition-colors block">About</a></li>
+          <li><a href="#portfolio" class="hover:text-slate-200  transition-colors block">Portfolio</a></li>
+          <li><a href="#blog" class="hover:text-slate-200  transition-colors block">Blog</a></li>
+          <li><a href="#contact" class="hover:text-slate-200  transition-colors block">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <!-- Hero Section -->
   <section id="home" class="pt-36">
@@ -64,18 +73,33 @@
           </a>
         </div>
 
-        <div class="w-full lg:w-1/2 self-end mt-10">
-          <div class="relative">
-            <img src="images/Fotofiky.png" alt="Mohamad Fiky" class="max-w-full mx-auto" width="380">
-            <span class="absolute bottom-0 -z-10 left-1/2 -translate-x-1/2 md:scale-125">
-              <svg width="350" height="420" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#0ea5e9"
+        <!-- Gambar dalam SVG -->
+        <div class="w-full lg:w-1/2 self-end mt-10 flex justify-center">
+          <svg width="380" height="420" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="max-w-full">
+            <defs>
+              <!-- Bentuk organik untuk masking -->
+              <clipPath id="blobClip">
+                <path
                   d="M49.7,-15.4C59.1,12.6,57.5,44.8,38.7,60.2C19.8,75.5,-16.4,73.9,-40.9,56.2C-65.3,38.4,-78.1,4.4,-69.3,-22.7C-60.5,-49.9,-30.3,-70.3,-5,-68.7C20.2,-67,40.4,-43.4,49.7,-15.4Z"
                   transform="translate(100 100) scale(1.2)" />
-              </svg>
-            </span>
-          </div>
+              </clipPath>
+            </defs>
+
+            <!-- Grup yang terpotong clipPath -->
+            <g clip-path="url(#blobClip)">
+              <!-- Warna biru di belakang -->
+              <rect width="100%" height="100%" fill="#0ea5e9"></rect>
+              <!-- Gambar di atas warna biru -->
+              <image href="images/Fotofiky.png" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+            </g>
+
+            <!-- Tambahkan outline blob opsional -->
+            <path
+              d="M49.7,-15.4C59.1,12.6,57.5,44.8,38.7,60.2C19.8,75.5,-16.4,73.9,-40.9,56.2C-65.3,38.4,-78.1,4.4,-69.3,-22.7C-60.5,-49.9,-30.3,-70.3,-5,-68.7C20.2,-67,40.4,-43.4,49.7,-15.4Z"
+              transform="translate(100 100) scale(1.2)" fill="none" stroke="#0ea5e9" stroke-width="3" />
+          </svg>
         </div>
+
       </div>
     </div>
   </section>
@@ -89,7 +113,8 @@
           <h3 class="font-bold text-3xl mb-5 max-w-xl">Biodata saya!!</h3>
           <p class="font-medium text-base text-secondary leading-relaxed">
             Saya merupakan seorang Mahasiswa dari kampus Esa Unggul Jakarta dengan jurusan Teknik Informatika,
-            saya ingin menjadi seorang Fullstack Developer. Saya tinggal di Jakarta sejak lahir, sekarang saya berumur 18 tahun.
+            saya ingin menjadi seorang Fullstack Developer. Saya tinggal di Jakarta sejak lahir, sekarang saya berumur
+            18 tahun.
           </p>
         </div>
       </div>
@@ -132,7 +157,8 @@
         </div>
         <div class="rounded-xl shadow p-6 bg-white">
           <h3 class="font-semibold text-xl mb-2">Judul Blog 2</h3>
-          <p class="text-secondary text-sm leading-relaxed">Cuplikan artikel kedua saya tentang tips menjadi fullstack developer.</p>
+          <p class="text-secondary text-sm leading-relaxed">Cuplikan artikel kedua saya tentang tips menjadi fullstack
+            developer.</p>
           <a href="#" class="text-sky-500 hover:underline text-sm font-medium">Baca selengkapnya →</a>
         </div>
       </div>
@@ -146,22 +172,82 @@
       <form class="max-w-2xl mx-auto space-y-6">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama</label>
-          <input id="name" type="text" placeholder="Masukkan nama Anda" class="w-full border border-slate-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-sky-300">
+          <input id="name" type="text" placeholder="Masukkan nama Anda"
+            class="w-full border border-slate-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-sky-300">
         </div>
         <div>
           <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-          <input id="email" type="email" placeholder="Masukkan email Anda" class="w-full border border-slate-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-sky-300">
+          <input id="email" type="email" placeholder="Masukkan email Anda"
+            class="w-full border border-slate-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-sky-300">
         </div>
         <div>
           <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan</label>
-          <textarea id="message" rows="5" placeholder="Tulis pesan Anda" class="w-full border border-slate-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-sky-300"></textarea>
+          <textarea id="message" rows="5" placeholder="Tulis pesan Anda"
+            class="w-full border border-slate-300 p-3 rounded-lg focus:outline-none focus:ring focus:ring-sky-300"></textarea>
         </div>
-        <button type="submit" class="w-full bg-sky-500 text-white font-semibold py-3 rounded-lg hover:bg-sky-600 transition-colors">
+        <button type="submit"
+          class="w-full bg-sky-500 text-white font-semibold py-3 rounded-lg hover:bg-sky-600 transition-colors">
           Kirim Pesan
         </button>
       </form>
     </div>
   </section>
 
+  <!-- Footer -->
+  <footer class="bg-sky-400 text-white mt-16">
+    <div class="container max-w-7xl mx-auto px-2 py-4">
+      <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+
+        <!-- Logo atau Nama -->
+        <h3 class="text-lg font-bold">Mohamad Fiky</h3>
+
+        <!-- Menu + Sosial Media dalam 1 kolom -->
+        <div class="flex flex-col items-center md:items-end gap-4">
+          <!-- Menu Footer -->
+          <ul class="flex flex-col justify-center md:justify-end gap-2 text-sm font-medium">
+            <li><a href="#home" class="hover:text-slate-200 transition-colors">Beranda</a></li>
+            <li><a href="#about" class="hover:text-slate-200 transition-colors">About</a></li>
+            <li><a href="#portfolio" class="hover:text-slate-200 transition-colors">Portfolio</a></li>
+            <li><a href="#blog" class="hover:text-slate-200 transition-colors">Blog</a></li>
+            <li><a href="#contact" class="hover:text-slate-200 transition-colors">Contact</a></li>
+          </ul>
+
+          <!-- Sosial Media -->
+          <div class="flex gap-2">
+            <a href="https://instagram.com/filas_756" aria-label="Instagram"
+              class="hover:text-slate-200 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5a.75.75 0 0 1 .75-.75zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mohamad-fiky/" aria-label="LinkedIn"
+              class="hover:text-slate-200 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.11 1 2.5 1 4.98 2.12 4.98 3.5zM.23 8.13H4.8V24H.23zM9.19 8.13h4.38v2.16h.06c.61-1.16 2.12-2.38 4.36-2.38 4.66 0 5.52 3.07 5.52 7.07V24H18V15.38c0-2.06-.04-4.72-2.88-4.72-2.88 0-3.32 2.25-3.32 4.58V24H9.19z" />
+              </svg>
+            </a>
+            <a href="https://github.com/FIKY0911" aria-label="GitHub" class="hover:text-slate-200 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56v-2.15c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.52-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.15 1.18.92-.26 1.9-.38 2.87-.38s1.95.12 2.87.38c2.19-1.49 3.15-1.18 3.15-1.18.62 1.58.23 2.74.11 3.03.74.81 1.18 1.84 1.18 3.1 0 4.41-2.69 5.39-5.25 5.68.42.36.78 1.1.78 2.22v3.3c0 .31.21.67.79.56A11.5 11.5 0 0 0 23.5 12c0-6.35-5.15-11.5-11.5-11.5z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-6 text-center text-sm text-slate-200">
+        © 2025 Mohamad Fiky. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
 </body>
+
 </html>
